@@ -1,40 +1,65 @@
 :root {
   --main-clr: #e63b2e;
-  --main-clr-sh: #d0190c;
-  --font1: "okta";
-  --font2: "okta2";
+  --main-clr-sh: #a11208;
+  --font-bold: "ag-h", sans-serif;
+  --font-light: "ag-n", sans-serif;
+  --font-mid: "ag-md", sans-serif;
+  --dimmed-main: #f0bcb951;
 }
 
 @font-face {
-  font-family: "okta";
-  src: url("assets/okta3.otf");
+  font-family: "ag-n";
+  src: url("assets/ag-n.otf");
 }
 @font-face {
-  font-family: "okta2";
-  src: url("assets/okta2.otf");
+  font-family: "ag-h";
+  src: url("assets/ag-h.otf");
+  font-weight: 560;
+}
+@font-face {
+  font-family: "ag-md";
+  src: url("assets/ag-b.otf");
+  font-weight: 560;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  letter-spacing: 0.05rem;
 }
 
 header {
-  font-family: "okta", sans-serif;
+  border-bottom: 4px dotted var(--main-clr);
+  font-family: var(--font-bold);
   color: var(--main-clr);
   nav {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
+    .logo {
+      fill: var(--main-clr);
+      transform: rotate3d(90deg);
+      width: 4vw;
+      padding-bottom: 5px;
+      font-family: "ag-n";
+    }
 
     ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       a {
         text-decoration: none;
         color: inherit;
-        font-size: 0.8rem;
+        font-size: 0.6rem;
+        font-weight: 600;
+        font-family: var(--font-light);
       }
       li {
         list-style: none;
+        position: relative;
+        padding: 0;
+        height: 17px;
       }
       display: flex;
       gap: 10px;
@@ -44,8 +69,9 @@ header {
     .left {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 5px;
       padding: 15px;
+      font-size: 0.6rem;
     }
 
     .right {
@@ -54,20 +80,22 @@ header {
       padding: 15px;
       align-items: center;
 
-      /* From Uiverse.io by BHARGAVPATEL1244 */
       button {
         outline: none;
         cursor: pointer;
         border: none;
-        padding: 0.9rem 2rem;
+
         margin: 0;
-        font-family: inherit;
-        font-size: inherit;
+        font-family: var(--font-mid);
+        text-transform: capitalize;
+        font-size: 0.45rem;
+        height: 30px;
+        padding-inline: 15px;
         position: relative;
         display: inline-block;
         letter-spacing: 0.05rem;
         font-weight: 700;
-        font-size: 17px;
+
         border-radius: 500px;
         overflow: hidden;
         background: var(--main-clr-sh);
@@ -107,5 +135,195 @@ header {
         transform: translate3d(100%, 0, 0);
       }
     }
+  }
+}
+
+.hero {
+  height: 200vh;
+
+  overflow: hidden;
+  position: relative;
+  h1 {
+    font-family: var(--font-bold);
+    font-size: 25vw;
+    text-align: center;
+    color: var(--main-clr);
+    height: 25vw;
+  }
+  p {
+    text-align: center;
+    text-transform: capitalize;
+    font-family: var(--font-bold);
+    font-size: 0.6rem;
+    color: var(--main-clr-sh);
+  }
+  .vd {
+    width: clamp(300px, 100%, 700px);
+    height: 45vw;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 17vw;
+    z-index: 100;
+    background: none !important;
+    background-color: transparent !important;
+  }
+
+  .card {
+    width: 30vw;
+    height: 12vw;
+    background-color: white;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    margin-inline: 20px;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    bottom: 50%;
+    transform: translateY(-50%);
+    padding: 5px;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 5px;
+
+      .btns {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        button {
+          height: 30px;
+          border-radius: 50px;
+          font-family: var(--font-bold);
+          font-size: 0.3rem;
+          align-content: center;
+          cursor: pointer;
+        }
+        button:nth-child(1) {
+          background-color: var(--main-clr-sh);
+          color: white;
+          border: none;
+        }
+        button:nth-child(2) {
+          background-color: var(--main-clr-sh);
+          color: var(--main-clr-sh);
+          background: none;
+          border: 2px solid var(--main-clr-sh);
+        }
+      }
+    }
+    h2 {
+      font-family: var(--font-bold);
+      font-size: 0.7rem;
+      color: var(--main-clr-sh);
+    }
+    p {
+      font-family: var(--font-light);
+      text-align: left;
+    }
+    img {
+      height: 100%;
+      border-radius: 5px;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+  }
+  .leftText {
+    width: 30vw;
+    height: 12vw;
+
+    margin-inline: 20px;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    bottom: 50%;
+    transform: translateY(-50%);
+    padding: 5px;
+
+    p {
+      text-align: left;
+      font-family: var(--font-mid);
+    }
+    button {
+      height: 30px;
+      border-radius: 50px;
+      font-family: var(--font-mid);
+      font-size: 0.5rem;
+      align-content: center;
+      cursor: pointer;
+      background-color: var(--main-clr-sh);
+      color: white;
+      border: none;
+      padding-inline: 20px;
+      margin-top: 20px;
+    }
+  }
+}
+
+.hvr-underline-from-left:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: var(--main-clr);
+  height: 1px;
+  -webkit-transition-property: right;
+  transition-property: right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-underline-from-left:hover:before,
+.hvr-underline-from-left:focus:before,
+.hvr-underline-from-left:active:before {
+  right: 0;
+}
+
+.whyus {
+  background-color: var(--main-clr);
+  height: 50vh;
+}
+
+.top {
+  height: 100vh;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10vw;
+  .p1,
+  .p2 {
+    font-family: var(--font-bold);
+    font-size: 2.5rem;
+    color: var(--dimmed-main);
+  }
+  span {
+    height: 11vw;
+    font-size: 3rem;
+    font-family: var(--font-bold);
+    display: inline-block;
+    align-content: center;
+    background-color: var(--main-clr-sh);
+    padding-inline: 50px;
+    border: 1vw solid white;
+    transform: rotate(10deg);
+    color: white;
+    border-radius: 10px;
+    z-index: 50;
+    clip-path: polygon(50% 0%, 50% 0, 48% 100%, 48% 100%);
+  }
+  .txt {
+    font-family: var(--font-light);
+    padding-top: 30px;
   }
 }
