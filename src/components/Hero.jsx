@@ -20,7 +20,7 @@ const Hero = () => {
       scrollTrigger: {
         trigger: ".bottom",
         start: "top bottom",
-        end: "+=1500",
+        end: "+=1800",
         scrub: true,
       },
     });
